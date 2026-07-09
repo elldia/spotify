@@ -1,0 +1,26 @@
+/* login.css */
+body {background-color:#222;}
+#wrap {
+    border:2px solid aqua;
+    width:420px;
+    padding:100px 0 0; 
+    margin:0 auto;
+}
+#wrap main {}
+/* ----------------------------로고, 탭메뉴 */
+#wrap main h1 {width:160px; margin:0 auto;}
+#wrap main h1 img {width:100%;}
+#wrap main .tab_menu {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:center;
+    gap:60px;
+    margin:24px 0 44px;
+}
+#wrap main .tab_menu .active {
+    border-bottom:2px solid #1ED760;
+}
+#wrap main .tab_menu .sign_in {}
+#wrap main .tab_menu .sign_up {}
+#wrap main .tab_menu * {color:#fff;}
+/* ----------------------------로그인 양식 */
