@@ -18,9 +18,51 @@ body {background-color:#222;}
     margin:24px 0 44px;
 }
 #wrap main .tab_menu .active {
-    border-bottom:2px solid #1ED760;
+    /* border-bottom:10px solid #1ED760; */
+    position:relative;/* after, before의 기준 부모 */
+}
+/* 활성화 디자인 시 요소의 크기와 관계없이 다양한 크기와 위치 디자인을 하고 싶을 때 border속성은 무조건 요소의 크기와 동일하게 만들어지므로 다른 방법을 사용해야 한다. */
+#wrap main .tab_menu .active::after {
+    content:''; display:block;
+    width:40px; height:2px;
+    background-color:yellow;
+    position:absolute; left:0; bottom:-10px;
+}
+#wrap main .tab_menu .active::before {
+    content:''; display:block;
+    width:13px; height:2px;
+    background-color:aqua;
+    position:absolute; right:0; bottom:-10px;
 }
 #wrap main .tab_menu .sign_in {}
 #wrap main .tab_menu .sign_up {}
 #wrap main .tab_menu * {color:#fff;}
 /* ----------------------------로그인 양식 */
+/* 태그[속성=값] 속성선택자, form, input, button등에 주로사용 */
+#wrap main form[name^=login] {
+    background-color:brown;
+    display:flex; flex-flow:column nowrap;
+    gap:24px;
+}
+#wrap main form[name^=login] fieldset[class*=g] {
+    display:flex; flex-flow:column nowrap;
+    /* align-items: center; */
+    text-align:center;
+}
+#wrap main form[name^=login] fieldset[class*=g] input[name^=user] {
+    width:100%; height:46px;
+    border-radius:23px; padding:0 20px; margin-bottom:12px;
+}
+#wrap main form[name^=login] fieldset[class*=g] input[name^=user]:nth-child(3) {margin:0;}
+/* form[name^=login] > * {} */
+#wrap main form[name^=login] fieldset[class*=g] input[name^=user]::placeholder {
+    font-size:0.875rem; color:#aaa;
+}
+/* -----------------------------LOGIN 버튼 */
+#wrap main form[name^=login] fieldset[class*=g] button[id*=login] {}
+#wrap main form[name^=login] fieldset[class*=g] #login_btn {
+    color:#fff; background-color:#1ED760;
+    width:100%; height:46px; border-radius:23px;
+    margin-bottom:12px;
+}
+#wrap main form[name^=login] fieldset[class*=g] .search_pw {color:#fff;}
